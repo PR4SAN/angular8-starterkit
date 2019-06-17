@@ -1,6 +1,7 @@
 {
   "name": "angular8-starter",
   "version": "0.0.0",
+  "author": "Suprasanna Ojha",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
