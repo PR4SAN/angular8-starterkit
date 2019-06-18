@@ -1,3 +1,41 @@
-<p>
-  login works!
-</p>
+<div class="login-page">
+  <div class="content">
+    <form class="login-form" fxFlex [formGroup]="form">
+      <div class="text-center">
+        <h2 class="app-name">Login Form</h2>
+      </div>
+      <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input formControlName="user_name" name="username" autocomplete="off" matInput placeholder="Username" />
+            <mat-error *ngIf="form.controls['user_name'].errors?.required">Username is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <span>
+              <input formControlName="password" name="password" autocomplete="off" matInput [type]="isPasswordHidden? 'password' : 'text'" placeholder="Password" />
+              <span style="position: absolute; right: 0px;cursor: pointer;" (click)="isPasswordHidden = !isPasswordHidden">{{isPasswordHidden? 'Show' : 'Hide'}}</span>
+            </span>
+            <mat-error *ngIf="form.controls['password'].errors?.required">Password is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+        <div fxFlex>
+          <mat-checkbox color="primary">Remember Me</mat-checkbox>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+          <a class="link">Forgot Password</a>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <button mat-raised-button color="primary" class="w-100" type="submit" (click)="onLogin($event)" [disabled]="!form.valid">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

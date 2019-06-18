@@ -11,11 +11,11 @@ export class LocalstorageService {
     localStorage.setItem(key, data);
   }
 
-  getLocalStorage(key) {
+  getLocalStorage(key: string) {
     return localStorage.getItem(key);
   }
 
-  deleteLocalStorage(key) {
+  deleteLocalStorage(key: string) {
     return localStorage.removeItem(key);
   }
 }
